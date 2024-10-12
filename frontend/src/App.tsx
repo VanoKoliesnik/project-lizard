@@ -1,4 +1,4 @@
-import { Loading } from "@components";
+import { Loading, PageContainer } from "@components";
 import { Suspense } from "react";
 import {
   BrowserRouter as Router,
@@ -12,18 +12,20 @@ import { Login, Profile, Registration } from "@pages";
 function App() {
   return (
     <Suspense fallback={<Loading fullscreen />}>
-      <Router>
-        <Routes>
-          <Route path={RoutesPaths.Login} Component={Login} />
-          <Route path={RoutesPaths.Registration} Component={Registration} />
-          <Route path={RoutesPaths.Profile} Component={Profile} />
+      <PageContainer>
+        <Router>
+          <Routes>
+            <Route path={RoutesPaths.Login} Component={Login} />
+            <Route path={RoutesPaths.Registration} Component={Registration} />
+            <Route path={RoutesPaths.Profile} Component={Profile} />
 
-          <Route
-            path="*"
-            element={<Navigate to={RoutesPaths.Login} replace />}
-          />
-        </Routes>
-      </Router>
+            <Route
+              path="*"
+              element={<Navigate to={RoutesPaths.Login} replace />}
+            />
+          </Routes>
+        </Router>
+      </PageContainer>
     </Suspense>
   );
 }

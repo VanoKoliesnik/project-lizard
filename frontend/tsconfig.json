@@ -18,6 +18,7 @@
     "baseUrl": ".",
     "paths": {
       "@utils/*": ["src/utils/*"],
+      "@constants": ["src/common/constants/index.ts"],
       "@enums": ["src/common/enums/index.ts"],
       "@components": ["src/components/index.ts"],
       "@pages": ["src/pages/index.ts"]
