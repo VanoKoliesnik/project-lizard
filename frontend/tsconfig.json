@@ -14,7 +14,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["src/utils/*"],
+      "@enums": ["src/common/enums/index.ts"],
+      "@components": ["src/components/index.ts"],
+      "@pages": ["src/pages/index.ts"]
+    }
   },
   "include": ["src"]
 }
