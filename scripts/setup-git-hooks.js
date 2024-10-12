@@ -13,7 +13,7 @@ fi
 
 # Run linting and formatting for frontend
 cd frontend
-yarn lint && yarn format
+npx lint-staged
 if [ $? -ne 0 ]; then
   echo "Frontend linting/formatting failed. Aborting commit."
   exit 1
@@ -22,7 +22,7 @@ cd ..
 
 # Run linting and formatting for backend
 cd backend
-yarn lint && yarn format
+npx lint-staged
 if [ $? -ne 0 ]; then
   echo "Backend linting/formatting failed. Aborting commit."
   exit 1

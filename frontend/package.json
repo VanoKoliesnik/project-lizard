@@ -12,6 +12,12 @@
     "format": "prettier --write .",
     "lint": "eslint ./src/**/*.{ts,tsx} --fix"
   },
+  "lint-staged": {
+    "*.ts": [
+      "yarn format",
+      "yarn lint"
+    ]
+  },
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@emotion/react": "^11.13.3",
