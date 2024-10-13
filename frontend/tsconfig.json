@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": true,
@@ -22,36 +18,16 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@utils/*": [
-        "src/utils/*"
-      ],
-      "@constants": [
-        "src/common/constants/index.ts"
-      ],
-      "@enums": [
-        "src/common/enums/index.ts"
-      ],
-      "@type/*": [
-        "src/common/types/*"
-      ],
-      "@hooks/*": [
-        "src/common/hooks/*"
-      ],
-      "@api/*": [
-        "src/common/api/*"
-      ],
-      "@store/*": [
-        "src/store/*"
-      ],
-      "@components": [
-        "src/components/index.ts"
-      ],
-      "@pages": [
-        "src/pages/index.ts"
-      ]
+      "@utils/*": ["src/utils/*"],
+      "@constants": ["src/common/constants/index.ts"],
+      "@enums": ["src/common/enums/index.ts"],
+      "@type/*": ["src/common/types/*"],
+      "@hooks/*": ["src/common/hooks/*"],
+      "@api/*": ["src/common/api/*"],
+      "@store/*": ["src/store/*"],
+      "@components": ["src/components/index.ts"],
+      "@pages": ["src/pages/index.ts"]
     }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
