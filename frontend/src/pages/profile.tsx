@@ -1,22 +1,17 @@
-import { Button, Typography } from "antd";
+import { ProfileCard, ProfileCardEditor } from "@components";
+import { ProfileMode } from "@enums";
 import Title from "antd/es/typography/Title";
-import React from "react";
+import React, { useState } from "react";
 
-export const Profile: React.FC = () => {
+export const ProfilePage: React.FC = () => {
+  const [mode, setMode] = useState<ProfileMode>(ProfileMode.View);
+
   return (
     <div>
-      <Title level={2}>Login</Title>
+      <Title level={2}>Profile</Title>
 
-      <Typography>
-        <strong>Name:</strong> Test Name
-      </Typography>
-
-      <Typography>
-        <strong>Email:</strong> Test Email
-      </Typography>
-
-      <Button>Settings</Button>
-      <Button>Logout</Button>
+      {mode === ProfileMode.View && <ProfileCard setMode={setMode} />}
+      {mode === ProfileMode.Edit && <ProfileCardEditor setMode={setMode} />}
     </div>
   );
 };

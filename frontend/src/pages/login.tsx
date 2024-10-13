@@ -1,22 +1,45 @@
 import { Email, Password } from "@components";
 import { RoutesPaths } from "@enums";
-import { Button, Form } from "antd";
+import useLoginUser from "@hooks/useLogin";
+import { useAppSelector } from "@store/index";
+import { User } from "@type/user";
+import { Button, Form, message } from "antd";
 import Title from "antd/es/typography/Title";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-type Values = {
-  email: string;
-  password: string;
-};
+type Credentials = Pick<User, "email" | "password">;
 
-export const Login: React.FC = () => {
-  const onFinish = (values: Values) => {
-    console.log("Form values:", values);
+export const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
+  const token = useAppSelector(({ auth: { token } }) => token);
+  const { loginUser } = useLoginUser();
+
+  const [messageApi, contextHolder] = message.useMessage();
+
+  useEffect(() => {
+    if (token) {
+      navigate(RoutesPaths.Profile);
+    }
+  }, [token, navigate]);
+
+  const onFinish = async (credentials: Credentials) => {
+    const { result, reason = "" } = await loginUser(credentials);
+
+    switch (result) {
+      case "success":
+        navigate(RoutesPaths.Profile);
+        break;
+
+      case "error":
+        messageApi.error(reason);
+        break;
+    }
   };
 
   return (
     <div>
+      {contextHolder}
       <Title level={2}>Login</Title>
 
       <Form onFinish={onFinish}>

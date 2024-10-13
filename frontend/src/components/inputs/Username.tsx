@@ -2,10 +2,20 @@ import { USERNAME_REGEXP } from "@constants";
 import { Form, Input } from "antd";
 import React from "react";
 
-export const Username: React.FC = () => {
+type Props = {
+  showLabel?: boolean;
+  initialValue?: string;
+};
+
+export const Username: React.FC<Props> = ({
+  initialValue,
+  showLabel = false,
+}) => {
   return (
     <Form.Item
       name="username"
+      initialValue={initialValue}
+      label={showLabel ? "Username" : null}
       rules={[
         { required: true, message: "Username is required" },
         {
@@ -16,7 +26,7 @@ export const Username: React.FC = () => {
         { max: 16, message: "Must be no longer than 16 characters" },
       ]}
     >
-      <Input placeholder="Email" />
+      <Input placeholder="Username" />
     </Form.Item>
   );
 };

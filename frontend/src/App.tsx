@@ -1,4 +1,4 @@
-import { Loading, PageContainer } from "@components";
+import { Loading, PageContainer, PrivateRoute } from "@components";
 import { Suspense } from "react";
 import {
   BrowserRouter as Router,
@@ -7,26 +7,37 @@ import {
   Navigate,
 } from "react-router-dom";
 import { RoutesPaths } from "@enums";
-import { Login, Profile, Registration } from "@pages";
+import { LoginPage, RegistrationPage, ProfilePage } from "@pages";
+import { Provider } from "react-redux";
+import store from "src/store";
 
 function App() {
   return (
-    <Suspense fallback={<Loading fullscreen />}>
-      <PageContainer>
-        <Router>
-          <Routes>
-            <Route path={RoutesPaths.Login} Component={Login} />
-            <Route path={RoutesPaths.Registration} Component={Registration} />
-            <Route path={RoutesPaths.Profile} Component={Profile} />
+    <Provider store={store}>
+      <Suspense fallback={<Loading fullscreen />}>
+        <PageContainer>
+          <Router>
+            <Routes>
+              <Route path={RoutesPaths.Login} Component={LoginPage} />
 
-            <Route
-              path="*"
-              element={<Navigate to={RoutesPaths.Login} replace />}
-            />
-          </Routes>
-        </Router>
-      </PageContainer>
-    </Suspense>
+              <Route
+                path={RoutesPaths.Registration}
+                Component={RegistrationPage}
+              />
+
+              <Route element={<PrivateRoute />}>
+                <Route path="/profile" element={<ProfilePage />} />
+              </Route>
+
+              <Route
+                path="*"
+                element={<Navigate to={RoutesPaths.Login} replace />}
+              />
+            </Routes>
+          </Router>
+        </PageContainer>
+      </Suspense>
+    </Provider>
   );
 }
 
