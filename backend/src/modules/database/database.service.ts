@@ -5,7 +5,7 @@ import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 @Injectable()
-export class DatabaseConfigService implements TypeOrmOptionsFactory {
+export class DatabaseService implements TypeOrmOptionsFactory {
   constructor(
     @Inject(databaseConfigFactory.KEY)
     private readonly databaseConfig: ConfigType<typeof databaseConfigFactory>,
@@ -16,8 +16,8 @@ export class DatabaseConfigService implements TypeOrmOptionsFactory {
       ...this.databaseConfig,
       autoLoadEntities: true,
       type: 'postgres',
+      synchronize: true,
       namingStrategy: new SnakeNamingStrategy(),
-      applicationName: 'launchpad-service',
     };
   }
 }
