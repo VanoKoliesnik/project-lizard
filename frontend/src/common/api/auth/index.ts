@@ -1,6 +1,6 @@
-import { HttpMethod } from "@enums";
-import { apiSlice } from "@store/slices/api.slice";
-import { User } from "@type/user";
+import { HttpMethod } from "@/common/enums";
+import { User } from "@/common/types/user";
+import { apiSlice } from "@/store/slices/api.slice";
 
 type RegisterResponse = { message: string };
 type RegisterArgs = Pick<User, "username" | "email" | "salt" | "verifier">;

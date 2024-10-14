@@ -3,7 +3,7 @@ FROM node:22 AS builder
 WORKDIR /frontend
 
 COPY ./package.json ./
-RUN yarn install
+RUN yarn install --silent
 
 COPY . .
 
@@ -11,7 +11,7 @@ RUN yarn build
 
 FROM nginx:alpine
 
-COPY --from=builder /frontend/build /usr/share/nginx/html
+COPY --from=builder /frontend/dist /usr/share/nginx/html
 
 EXPOSE 80
 

@@ -1,10 +1,10 @@
-import { useGetUserQuery } from "@api/user";
-import { ProfileMode } from "@enums";
-import { useAppDispatch } from "@store/index";
-import { logout } from "@store/slices/auth.slice";
 import { Button, Flex } from "antd";
 import Typography from "antd/es/typography/Typography";
 import { Loading } from "./Loading";
+import { ProfileMode } from "@/common/enums";
+import { useGetUserQuery } from "@/common/api/user";
+import { useAppDispatch } from "@/store";
+import { logout } from "@/store/slices/auth.slice";
 
 type Props = {
   setMode: React.Dispatch<React.SetStateAction<ProfileMode>>;

@@ -1,4 +1,4 @@
-import { USERNAME_REGEXP } from "@constants";
+import { USERNAME_REGEXP } from "@/common/constants";
 import { Form, Input } from "antd";
 import React from "react";
 

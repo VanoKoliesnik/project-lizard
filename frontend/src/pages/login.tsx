@@ -1,8 +1,8 @@
-import { Email, Password } from "@components";
-import { RoutesPaths } from "@enums";
-import useLoginUser from "@hooks/useLogin";
-import { useAppSelector } from "@store/index";
-import { User } from "@type/user";
+import { RoutesPaths } from "@/common/enums";
+import useLoginUser from "@/common/hooks/useLogin";
+import { User } from "@/common/types/user";
+import { Email, Password } from "@/components";
+import { useAppSelector } from "@/store";
 import { Button, Form, message } from "antd";
 import Title from "antd/es/typography/Title";
 import React, { useEffect } from "react";

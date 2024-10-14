@@ -1,7 +1,7 @@
-import { ConfirmPassword, Email, Password, Username } from "@components";
-import { RoutesPaths } from "@enums";
-import useRegisterUser from "@hooks/useRegister";
-import { User } from "@type/user";
+import { RoutesPaths } from "@/common/enums";
+import useRegisterUser from "@/common/hooks/useRegister";
+import { User } from "@/common/types/user";
+import { ConfirmPassword, Email, Password, Username } from "@/components";
 import { Button, Form, message } from "antd";
 import Title from "antd/es/typography/Title";
 import React from "react";

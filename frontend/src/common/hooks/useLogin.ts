@@ -1,9 +1,9 @@
 import srp from "secure-remote-password/client";
-import { User } from "@type/user";
-import { RequestResult } from "@type/api";
-import { useLoginMutation, useVerifyMutation } from "@api/auth";
-import { useAppDispatch } from "@store/index";
-import { setAuthToken } from "@store/slices/auth.slice";
+import { User } from "../types/user";
+import { useLoginMutation, useVerifyMutation } from "../api/auth";
+import { useAppDispatch } from "@/store";
+import { RequestResult } from "../types/api";
+import { setAuthToken } from "@/store/slices/auth.slice";
 
 type Credentials = Pick<User, "email" | "password">;
 

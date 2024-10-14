@@ -1,6 +1,6 @@
-import { HttpMethod } from "@enums";
-import { apiSlice } from "@store/slices/api.slice";
-import { User } from "@type/user";
+import { HttpMethod } from "@/common/enums";
+import { User } from "@/common/types/user";
+import { apiSlice } from "@/store/slices/api.slice";
 
 type GetUserResponse = Pick<User, "username" | "email">;
 

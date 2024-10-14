@@ -1,7 +1,7 @@
 import srp from "secure-remote-password/client";
-import { useRegisterMutation } from "@api/auth";
-import { User } from "@type/user";
-import { RequestResult } from "@type/api";
+import { User } from "../types/user";
+import { useRegisterMutation } from "../api/auth";
+import { RequestResult } from "../types/api";
 
 type Credentials = Pick<User, "username" | "email" | "password">;
 

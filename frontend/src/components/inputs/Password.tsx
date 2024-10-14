@@ -1,4 +1,4 @@
-import { PASSWORD_REGEXP } from "@constants";
+import { PASSWORD_REGEXP } from "@/common/constants";
 import { Form, Input } from "antd";
 import React from "react";
 

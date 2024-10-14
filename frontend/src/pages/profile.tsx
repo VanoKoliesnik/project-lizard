@@ -1,5 +1,5 @@
-import { ProfileCard, ProfileCardEditor } from "@components";
-import { ProfileMode } from "@enums";
+import { ProfileMode } from "@/common/enums";
+import { ProfileCard, ProfileCardEditor } from "@/components";
 import Title from "antd/es/typography/Title";
 import React, { useState } from "react";
 

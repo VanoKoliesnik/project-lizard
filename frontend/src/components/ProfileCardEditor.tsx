@@ -1,9 +1,9 @@
-import { User } from "@type/user";
 import React from "react";
 import { Username } from "./inputs";
-import { ProfileMode } from "@enums";
 import { Button, Form, message } from "antd";
-import { useGetUserQuery, useUpdateUsernameMutation } from "@api/user";
+import { ProfileMode } from "@/common/enums";
+import { useGetUserQuery, useUpdateUsernameMutation } from "@/common/api/user";
+import { User } from "@/common/types/user";
 
 type Props = {
   setMode: React.Dispatch<React.SetStateAction<ProfileMode>>;

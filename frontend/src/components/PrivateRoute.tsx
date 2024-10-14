@@ -1,5 +1,5 @@
-import { RoutesPaths } from "@enums";
-import { useAppSelector } from "@store/index";
+import { RoutesPaths } from "@/common/enums";
+import { useAppSelector } from "@/store";
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
