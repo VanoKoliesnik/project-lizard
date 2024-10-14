@@ -18,12 +18,12 @@ function App() {
         <PageContainer>
           <Router>
             <Routes>
-              <Route path={RoutesPaths.Login} Component={LoginPage} />
-
               <Route
                 path={RoutesPaths.Registration}
                 Component={RegistrationPage}
               />
+
+              <Route path={RoutesPaths.Login} Component={LoginPage} />
 
               <Route element={<PrivateRoute />}>
                 <Route path="/profile" element={<ProfilePage />} />
