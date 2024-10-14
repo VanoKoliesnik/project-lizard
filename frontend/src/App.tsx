@@ -9,7 +9,9 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { Loading, PageContainer, PrivateRoute } from "./components";
 import { RoutesPaths } from "./common/enums";
-import { LoginPage, ProfilePage, RegistrationPage } from "./pages";
+import { RegistrationPage } from "./pages/Registration";
+import { LoginPage } from "./pages/Login";
+import { ProfilePage } from "./pages/Profile";
 
 function App() {
   return (
