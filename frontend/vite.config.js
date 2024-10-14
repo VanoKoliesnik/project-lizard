@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     nodeResolve({
       extensions: ["ts", "tsx"],
+      browser: true,
     }),
   ],
   server: { port: 3000 },
