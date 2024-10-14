@@ -10,7 +10,7 @@ import { RoutesPaths } from "@enums";
 import { RegistrationPage, ProfilePage } from "@pages";
 import { Provider } from "react-redux";
 import store from "src/store";
-import { LoginPage } from "./pages/Login";
+// import { LoginPage } from "./pages/Login";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
                 Component={RegistrationPage}
               />
 
-              <Route path={RoutesPaths.Login} Component={LoginPage} />
+              {/* <Route path={RoutesPaths.Login} Component={LoginPage} /> */}
 
               <Route element={<PrivateRoute />}>
                 <Route path="/profile" element={<ProfilePage />} />
