@@ -7,9 +7,10 @@ import {
   Navigate,
 } from "react-router-dom";
 import { RoutesPaths } from "@enums";
-import { LoginPage, RegistrationPage, ProfilePage } from "@pages";
+import { RegistrationPage, ProfilePage } from "@pages";
 import { Provider } from "react-redux";
 import store from "src/store";
+import { LoginPage } from "./pages/Login";
 
 function App() {
   return (
