@@ -27,7 +27,7 @@ export class UserController {
     return this.userService.getUser(request.user.id);
   }
 
-  @Patch()
+  @Patch('username')
   @UseGuards(JwtAuthGuard)
   @ApiResponse({ status: HttpStatus.OK, type: UpdateUserResponseDto })
   async patchUser(

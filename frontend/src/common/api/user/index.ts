@@ -15,7 +15,11 @@ export const { useGetUserQuery, useUpdateUsernameMutation } =
       }),
 
       updateUsername: build.mutation<GetUserResponse, UpdateUserArgs>({
-        query: (body) => ({ url: "user", body, method: HttpMethod.Patch }),
+        query: (body) => ({
+          url: "user/username",
+          body,
+          method: HttpMethod.Patch,
+        }),
         invalidatesTags: ["User"],
       }),
     }),
