@@ -8,7 +8,7 @@ export const ProfilePage: React.FC = () => {
 
   return (
     <div>
-      <Title level={2}>Lizard Profile 🦎</Title>
+      <Title level={2}>Profile 🦎</Title>
 
       {mode === ProfileMode.View && <ProfileCard setMode={setMode} />}
       {mode === ProfileMode.Edit && <ProfileCardEditor setMode={setMode} />}

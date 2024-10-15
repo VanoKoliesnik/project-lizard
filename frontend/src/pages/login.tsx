@@ -40,7 +40,7 @@ export const LoginPage: React.FC = () => {
   return (
     <div>
       {contextHolder}
-      <Title level={2}>Lizard Login 🦎</Title>
+      <Title level={2}>Login 🦎</Title>
 
       <Form onFinish={onFinish}>
         <Email />
