@@ -10,6 +10,6 @@ COPY . .
 
 RUN yarn build
 
-EXPOSE 5000
+EXPOSE ${SERVICE_PORT}
 
-CMD ["yarn", "start:prod"]
+CMD ["yarn", "start"]
