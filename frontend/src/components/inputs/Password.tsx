@@ -11,7 +11,7 @@ export const Password: React.FC = () => {
         { min: 8, message: "Must be at least 8 characters long" },
         {
           pattern: PASSWORD_REGEXP,
-          message: "Must contain only letters, numbers or !@#$%^&*",
+          message: "Must contain letters, numbers and !@#$%^&*",
         },
       ]}
     >
