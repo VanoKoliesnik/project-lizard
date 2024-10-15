@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { fileURLToPath } from "url";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
+import alias from "@rollup/plugin-alias";
+import { resolve } from "path";
 
 export default defineConfig({
   plugins: [
@@ -10,11 +11,14 @@ export default defineConfig({
       extensions: ["ts", "tsx"],
       browser: true,
     }),
+    alias({
+      entries: [
+        {
+          find: "@",
+          replacement: resolve(resolve(__dirname), "src"),
+        },
+      ],
+    }),
   ],
   server: { port: 3000 },
-  resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-    },
-  },
 });
