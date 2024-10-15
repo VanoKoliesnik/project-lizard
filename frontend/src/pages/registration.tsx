@@ -37,7 +37,7 @@ export const RegistrationPage: React.FC = () => {
   return (
     <div>
       {contextHolder}
-      <Title level={2}>Registration</Title>
+      <Title level={2}>Lizard Registration 🦎</Title>
 
       <Form form={form} onFinish={onFinish}>
         <Username />
