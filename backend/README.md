@@ -1,85 +1,136 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Backend Application
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+![NestJS](https://img.shields.io/badge/NestJS-v10.0.0-E0234E?style=flat-square&logo=nestjs)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16.0-336791?style=flat-square&logo=postgresql)
+![Google Cloud](https://img.shields.io/badge/Google%20Cloud%20App%20Engine-Deployed-4285F4?style=flat-square&logo=google-cloud)
+![ESLint](https://img.shields.io/badge/ESLint-8.42.0-4B32C3?style=flat-square&logo=eslint)
+![Prettier](https://img.shields.io/badge/Prettier-3.0.0-F7B93E?style=flat-square&logo=prettier)
+![Docker](https://img.shields.io/badge/Docker--2496ED?style=flat-square&logo=docker)
+![TypeScript](https://img.shields.io/badge/TypeScript-v5.1.3-007ACC?style=flat-square&logo=typescript)
+![Swagger](https://img.shields.io/badge/Swagger--85EA2D?style=flat-square&logo=swagger)
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a backend application built with NestJS, TypeScript, PostgreSQL, and deployed on Google Cloud App Engine. It uses SRP with JWT authentication and integrates Swagger for API documentation. Environment variables are validated using Joi, and the code follows ESLint and Prettier standards.
 
-## Project setup
+## Deployed Application
 
-```bash
-$ yarn install
-```
+The API is deployed on Google Cloud App Engine. You can access the live version of the API using the following link:
 
-## Compile and run the project
+[API](https://lizard-438618.lm.r.appspot.com/)
 
-```bash
-# development
-$ yarn run start
+Use the provided API documentation for available endpoints and interact with the deployed version via Swagger at:
 
-# watch mode
-$ yarn run start:dev
+[Documentation](https://lizard-438618.lm.r.appspot.com/api)
 
-# production mode
-$ yarn run start:prod
-```
+## Features
 
-## Run tests
+- **Authentication**
+  - Register
+  - Login
+  - Verify
+- **User**
+  - Get user profile
+  - Patch username
 
-```bash
-# unit tests
-$ yarn run test
+## Requirements
 
-# e2e tests
-$ yarn run test:e2e
+- Node.js
+- PostgreSQL
+- Google Cloud SDK
+- Docker
 
-# test coverage
-$ yarn run test:cov
-```
+## Installation
 
-## Resources
+1. Clone the repository:
 
-Check out a few resources that may come in handy when working with NestJS:
+   ```bash
+   git clone https://github.com/project-lizard.git
+   ```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+2. Install dependencies:
 
-## Support
+   ```bash
+   yarn install
+   ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+3. Set up environment variables. Make sure to configure the following in your `backend/.env` file:
 
-## Stay in touch
+   ```env
+    SERVICE_PORT=5000
+    SERVICE_HOST=localhost
+    SERVICE_NAME=Lizard
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+    BUILD_DOCS=true
 
-## License
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_USERNAME=postgres
+    DB_PASSWORD=postgres
+    DB_DATABASE=lizard
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+    JWT_EXPIRATION_TIME=30d
+    JWT_SECRET_KEY=some-random-super-secret-key
+
+    CORS_ORIGIN=http://frontend
+    CORS_METHODS=GET,PATCH,POST,OPTIONS
+   ```
+
+4. Environment variables will be validated using Joi.
+
+## Running the Application
+
+- **Development:**
+
+  ```bash
+  yarn start:dev
+  ```
+
+- **Build:**
+
+  ```bash
+  yarn build
+  ```
+
+- **Production:**
+
+  ```bash
+  yarn start
+  ```
+
+- **Docker:**
+  ```bash
+  docker build -t lizard-api .
+  docker run -p 3000:3000 lizard-api
+  ```
+
+## Deployment
+
+1. Deploy to Google Cloud App Engine:
+   ```bash
+   yarn deploy
+   ```
+
+## Linting and Formatting
+
+- **Lint:**
+
+  ```bash
+  yarn lint
+  ```
+
+- **Format:**
+  ```bash
+  yarn format
+  ```
+
+## Git Hooks
+
+The project uses lint-staged to run linting and formatting checks before committing. Git hooks are configured to ensure code quality. The following scripts are set up:
+
+- **pre-commit**: Runs linting and formatting for both frontend and backend.
+- **commit-msg**: Ensures that commit messages follow the conventional commit format.
+
+## API Documentation
+
+Swagger is integrated for API documentation. Access the Swagger UI at: http://localhost:3000/api
