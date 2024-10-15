@@ -45,7 +45,7 @@ Use the provided API documentation for available endpoints and interact with the
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/project-lizard.git
+   git clone https://github.com/VanoKoliesnik/project-lizard.git
    ```
 
 2. Install dependencies:
