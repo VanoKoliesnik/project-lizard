@@ -7,8 +7,11 @@ RUN yarn install --silent
 
 COPY . .
 
-ENV VITE_API_URL=https://lizard-438618.lm.r.appspot.com
-ENV VITE_API_VERSION=v1
+ARG VITE_API_URL
+ARG VITE_API_VERSION
+
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_API_VERSION=$VITE_API_VERSION
 
 RUN yarn build
 
