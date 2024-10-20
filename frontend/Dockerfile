@@ -18,6 +18,7 @@ RUN yarn build
 FROM nginx:alpine
 
 COPY --from=builder /frontend/dist /usr/share/nginx/html
+COPY --from=builder .env /usr/share/nginx/.env
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE $PORT
