@@ -8,6 +8,8 @@ import {
 import { RootState } from '..';
 import { logout } from './auth.slice';
 
+console.debug(import.meta.env);
+
 const baseQuery = fetchBaseQuery({
   baseUrl: new URL(
     import.meta.env.VITE_API_VERSION,
