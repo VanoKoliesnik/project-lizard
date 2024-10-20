@@ -1,13 +1,13 @@
-import { RoutesPaths } from "@/common/enums";
-import useRegisterUser from "@/common/hooks/useRegister";
-import { User } from "@/common/types/user";
-import { ConfirmPassword, Email, Password, Username } from "@/components";
-import { Button, Form, message } from "antd";
-import Title from "antd/es/typography/Title";
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { RoutesPaths } from '@/common/enums';
+import useRegisterUser from '@/common/hooks/useRegister';
+import { User } from '@/common/types/user';
+import { ConfirmPassword, Email, Password, Username } from '@/components';
+import { Button, Form, message } from 'antd';
+import Title from 'antd/es/typography/Title';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-type Credentials = Pick<User, "username" | "email" | "password">;
+type Credentials = Pick<User, 'username' | 'email' | 'password'>;
 
 export const RegistrationPage: React.FC = () => {
   const navigate = useNavigate();
@@ -21,15 +21,15 @@ export const RegistrationPage: React.FC = () => {
     const { result } = await registerUser(credentials);
 
     switch (result) {
-      case "success":
-        messageApi.success("Registration successful");
+      case 'success':
+        messageApi.success('Registration successful');
         setTimeout(() => {
           navigate(RoutesPaths.Login);
         }, 1000);
         break;
 
-      case "error":
-        messageApi.error("Registration error");
+      case 'error':
+        messageApi.error('Registration error');
         break;
     }
   };
@@ -46,7 +46,7 @@ export const RegistrationPage: React.FC = () => {
         <ConfirmPassword form={form} />
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
+          <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
             Register
           </Button>
           Or <Link to={RoutesPaths.Login}>login now!</Link>

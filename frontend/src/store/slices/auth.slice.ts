@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type State = {
   token: string;
@@ -6,20 +6,20 @@ type State = {
 
 const initialState: State = {
   // todo: use redux-persist
-  token: localStorage.getItem("token") || null,
+  token: localStorage.getItem('token') || null,
 };
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     setAuthToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
-      localStorage.setItem("token", action.payload);
+      localStorage.setItem('token', action.payload);
     },
     logout: (state) => {
       state.token = null;
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
     },
   },
 });

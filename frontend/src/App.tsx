@@ -1,17 +1,17 @@
-import { Suspense } from "react";
+import { Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
-} from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./store";
-import { Loading, PageContainer, PrivateRoute } from "./components";
-import { RoutesPaths } from "./common/enums";
-import { RegistrationPage } from "./components/pages/Registration";
-import { LoginPage } from "./components/pages/Login";
-import { ProfilePage } from "./components/pages/Profile";
+} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+import { Loading, PageContainer, PrivateRoute } from './components';
+import { RoutesPaths } from './common/enums';
+import { RegistrationPage } from './components/pages/Registration';
+import { LoginPage } from './components/pages/Login';
+import { ProfilePage } from './components/pages/Profile';
 
 function App() {
   return (

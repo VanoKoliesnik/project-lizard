@@ -1,9 +1,9 @@
-import React from "react";
-import { Username } from "./inputs";
-import { Button, Form, message } from "antd";
-import { ProfileMode } from "@/common/enums";
-import { useGetUserQuery, useUpdateUsernameMutation } from "@/common/api/user";
-import { User } from "@/common/types/user";
+import React from 'react';
+import { Username } from './inputs';
+import { Button, Form, message } from 'antd';
+import { ProfileMode } from '@/common/enums';
+import { useGetUserQuery, useUpdateUsernameMutation } from '@/common/api/user';
+import { User } from '@/common/types/user';
 
 type Props = {
   setMode: React.Dispatch<React.SetStateAction<ProfileMode>>;
@@ -24,14 +24,14 @@ export const ProfileCardEditor: React.FC<Props> = ({ setMode }) => {
     setMode(ProfileMode.View);
   };
 
-  const onFinish = async ({ username }: Pick<User, "username">) => {
+  const onFinish = async ({ username }: Pick<User, 'username'>) => {
     try {
       await updateUsername({ username }).unwrap();
 
-      messageApi.success("Username update successful");
+      messageApi.success('Username update successful');
       setTimeout(switchToViewMode, 1000);
     } catch {
-      messageApi.error("Error during username update");
+      messageApi.error('Error during username update');
     }
   };
 

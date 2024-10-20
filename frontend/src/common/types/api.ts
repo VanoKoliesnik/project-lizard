@@ -1,4 +1,4 @@
 export type RequestResult = {
-  result: "success" | "error";
+  result: 'success' | 'error';
   reason?: string;
 };

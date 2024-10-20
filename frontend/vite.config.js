@@ -1,7 +1,7 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import alias from "@rollup/plugin-alias";
-import { resolve } from "path";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import alias from '@rollup/plugin-alias';
+import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [
@@ -9,8 +9,8 @@ export default defineConfig({
     alias({
       entries: [
         {
-          find: "@",
-          replacement: resolve(resolve(__dirname), "src"),
+          find: '@',
+          replacement: resolve(resolve(__dirname), 'src'),
         },
       ],
     }),

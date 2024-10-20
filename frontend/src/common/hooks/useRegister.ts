@@ -1,9 +1,9 @@
-import srp from "secure-remote-password/client";
-import { User } from "../types/user";
-import { useRegisterMutation } from "../api/auth";
-import { RequestResult } from "../types/api";
+import srp from 'secure-remote-password/client';
+import { User } from '../types/user';
+import { useRegisterMutation } from '../api/auth';
+import { RequestResult } from '../types/api';
 
-type Credentials = Pick<User, "username" | "email" | "password">;
+type Credentials = Pick<User, 'username' | 'email' | 'password'>;
 
 const useRegisterUser = () => {
   const [registerRequest] = useRegisterMutation();
@@ -25,10 +25,10 @@ const useRegisterUser = () => {
     })
       .unwrap()
       .then((): RequestResult => {
-        return { result: "success" };
+        return { result: 'success' };
       })
       .catch((error) => {
-        return { result: "error", reason: error?.data?.message };
+        return { result: 'error', reason: error?.data?.message };
       });
   };
 

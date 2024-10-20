@@ -1,7 +1,7 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { apiSlice } from "./slices/api.slice";
-import { authSlice } from "./slices/auth.slice";
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { apiSlice } from './slices/api.slice';
+import { authSlice } from './slices/auth.slice';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 const reducer = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer,

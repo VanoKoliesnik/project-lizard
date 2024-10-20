@@ -1,6 +1,6 @@
-import { Form, FormInstance, Input } from "antd";
-import { RuleObject } from "antd/es/form";
-import React from "react";
+import { Form, FormInstance, Input } from 'antd';
+import { RuleObject } from 'antd/es/form';
+import React from 'react';
 
 type ConfirmPasswordProps = {
   form: FormInstance;
@@ -8,9 +8,9 @@ type ConfirmPasswordProps = {
 
 export const ConfirmPassword: React.FC<ConfirmPasswordProps> = ({ form }) => {
   const validateConfirmPassword = (_: RuleObject, value: string) => {
-    const password = form.getFieldValue("password");
+    const password = form.getFieldValue('password');
     if (value && value !== password) {
-      return Promise.reject(new Error("Passwords do not match!"));
+      return Promise.reject(new Error('Passwords do not match!'));
     }
     return Promise.resolve();
   };
@@ -19,7 +19,7 @@ export const ConfirmPassword: React.FC<ConfirmPasswordProps> = ({ form }) => {
     <Form.Item
       name="confirm"
       rules={[
-        { required: true, message: "Please confirm your password!" },
+        { required: true, message: 'Please confirm your password!' },
         { validator: validateConfirmPassword },
       ]}
     >
