@@ -25,7 +25,6 @@ jobs:
 
       - name: Build Node Project
         working-directory: ./backend
-        run: yarn build
         run: |
           yarn build
 
