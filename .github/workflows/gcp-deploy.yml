@@ -4,12 +4,11 @@ on:
   push:
     branches:
       - main
-env:
-  env_var: Production
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: Production
 
     steps:
       - name: Checkout repository
