@@ -26,20 +26,24 @@ jobs:
       - name: Build Node Project
         working-directory: ./backend
         run: yarn build
-        env:
-          SERVICE_PORT: ${{ vars.SERVICE_PORT }}
-          SERVICE_HOST: ${{ vars.SERVICE_HOST }}
-          SERVICE_NAME: ${{ vars.SERVICE_NAME }}
-          BUILD_DOCS: ${{ vars.BUILD_DOCS }}
-          JWT_EXPIRATION_TIME: ${{ vars.JWT_EXPIRATION_TIME }}
-          CORS_ORIGIN: ${{ vars.CORS_ORIGIN }}
-          CORS_METHODS: ${{ vars.CORS_METHODS }}
-          DB_DATABASE: ${{ secrets.DB_DATABASE }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+        run: |
+          yarn build
+
+          touch ./dist/.env
+          echo SERVICE_PORT=${{ vars.SERVICE_PORT }} >> ./dist/.env
+          echo SERVICE_HOST=${{ vars.SERVICE_HOST }} >> ./dist/.env
+          echo SERVICE_NAME=${{ vars.SERVICE_NAME }} >> ./dist/.env
+          echo BUILD_DOCS=${{ vars.BUILD_DOCS }} >> ./dist/.env
+          echo JWT_EXPIRATION_TIME=${{ vars.JWT_EXPIRATION_TIME }} >> ./dist/.env
+          echo CORS_ORIGIN=${{ vars.CORS_ORIGIN }} >> ./dist/.env
+          echo CORS_METHODS=${{ vars.CORS_METHODS }} >> ./dist/.env
+
+          echo DB_DATABASE=${{ secrets.DB_DATABASE }} >> ./dist/.env
+          echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> ./dist/.env
+          echo DB_PORT=${{ secrets.DB_PORT }} >> ./dist/.env
+          echo DB_USERNAME=${{ secrets.DB_USERNAME }} >> ./dist/.env
+          echo JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }} >> ./dist/.env
 
       - name: Google Cloud Auth
         uses: "google-github-actions/auth@v2"
