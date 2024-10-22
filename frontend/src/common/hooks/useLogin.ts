@@ -1,11 +1,11 @@
-import srp from "secure-remote-password/client";
-import { User } from "../types/user";
-import { useLoginMutation, useVerifyMutation } from "../api/auth";
-import { useAppDispatch } from "@/store";
-import { RequestResult } from "../types/api";
-import { setAuthToken } from "@/store/slices/auth.slice";
+import srp from 'secure-remote-password/client';
+import { User } from '../types/user';
+import { useLoginMutation, useVerifyMutation } from '../api/auth';
+import { useAppDispatch } from '@/store';
+import { RequestResult } from '../types/api';
+import { setAuthToken } from '@/store/slices/auth.slice';
 
-type Credentials = Pick<User, "email" | "password">;
+type Credentials = Pick<User, 'email' | 'password'>;
 
 const useLoginUser = () => {
   const [loginRequest] = useLoginMutation();
@@ -40,14 +40,14 @@ const useLoginUser = () => {
       dispatch(setAuthToken(token));
 
       return {
-        result: "success",
+        result: 'success',
       };
     } catch {
       dispatch(setAuthToken(null));
 
       return {
-        result: "error",
-        reason: "Invalid credentials",
+        result: 'error',
+        reason: 'Invalid credentials',
       };
     }
   };

@@ -4,9 +4,9 @@ import {
   FetchArgs,
   fetchBaseQuery,
   FetchBaseQueryError,
-} from "@reduxjs/toolkit/query/react";
-import { RootState } from "..";
-import { logout } from "./auth.slice";
+} from '@reduxjs/toolkit/query/react';
+import { RootState } from '..';
+import { logout } from './auth.slice';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: new URL(
@@ -17,7 +17,7 @@ const baseQuery = fetchBaseQuery({
     const token = (getState() as RootState).auth.token;
 
     if (token) {
-      headers.set("Authorization", `Bearer ${token}`);
+      headers.set('Authorization', `Bearer ${token}`);
     }
 
     return headers;
@@ -39,8 +39,8 @@ const customFetchBase: BaseQueryFn<
 };
 
 export const apiSlice = createApi({
-  reducerPath: "api",
+  reducerPath: 'api',
   baseQuery: customFetchBase,
-  tagTypes: ["User"],
+  tagTypes: ['User'],
   endpoints: () => ({}),
 });

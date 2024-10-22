@@ -1,15 +1,20 @@
+import { PROOF_PATTERN, PUBLIC_KEY_PATTERN } from '@/common/constants';
 import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, Matches } from 'class-validator';
 
 export class VerifyUserBodyDto {
+  @IsEmail()
   @ApiProperty({ type: String, example: 'test@test.com' })
   email: string;
 
+  @Matches(PROOF_PATTERN)
   @ApiProperty({
     type: String,
     example: '10db4fd7128e713227a62b304a08961afddea402fc2e8b207b7107591b86b406',
   })
   clientProof: string;
 
+  @Matches(PUBLIC_KEY_PATTERN)
   @ApiProperty({
     type: String,
     example:

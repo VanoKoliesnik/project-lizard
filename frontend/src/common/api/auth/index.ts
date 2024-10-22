@@ -1,16 +1,16 @@
-import { HttpMethod } from "@/common/enums";
-import { User } from "@/common/types/user";
-import { apiSlice } from "@/store/slices/api.slice";
+import { HttpMethod } from '@/common/enums';
+import { User } from '@/common/types/user';
+import { apiSlice } from '@/store/slices/api.slice';
 
 type RegisterResponse = { message: string };
-type RegisterArgs = Pick<User, "username" | "email" | "salt" | "verifier">;
+type RegisterArgs = Pick<User, 'username' | 'email' | 'salt' | 'verifier'>;
 
 type LoginResponse = { salt: string; serverPublicKey: string };
-type LoginArgs = Pick<User, "email">;
+type LoginArgs = Pick<User, 'email'>;
 
 type VerifyResponse = { serverProof: string; token: string };
 type VerifyArgs =
-  | Pick<User, "email">
+  | Pick<User, 'email'>
   | {
       clientProof: string;
       clientPublicKey: string;
@@ -21,7 +21,7 @@ export const { useRegisterMutation, useLoginMutation, useVerifyMutation } =
     endpoints: (build) => ({
       register: build.mutation<RegisterResponse, RegisterArgs>({
         query: (body) => ({
-          url: "auth/register",
+          url: 'auth/register',
           method: HttpMethod.Post,
           body,
         }),
@@ -29,7 +29,7 @@ export const { useRegisterMutation, useLoginMutation, useVerifyMutation } =
 
       login: build.mutation<LoginResponse, LoginArgs>({
         query: (body) => ({
-          url: "auth/login",
+          url: 'auth/login',
           method: HttpMethod.Post,
           body,
         }),
@@ -37,7 +37,7 @@ export const { useRegisterMutation, useLoginMutation, useVerifyMutation } =
 
       verify: build.mutation<VerifyResponse, VerifyArgs>({
         query: (body) => ({
-          url: "auth/verify",
+          url: 'auth/verify',
           method: HttpMethod.Post,
           body,
         }),

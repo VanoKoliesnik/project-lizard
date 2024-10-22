@@ -1,12 +1,24 @@
+import {
+  SALT_PATTERN,
+  USERNAME_MAX_LENGTH,
+  USERNAME_MIN_LENGTH,
+  USERNAME_PATTERN,
+  VERIFIER_PATTERN,
+} from '@/common/constants';
 import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, Length, Matches } from 'class-validator';
 
 export class RegisterUserBodyDto {
+  @Length(USERNAME_MIN_LENGTH, USERNAME_MAX_LENGTH)
+  @Matches(USERNAME_PATTERN)
   @ApiProperty({ type: String, example: 'Test' })
   username: string;
 
+  @IsEmail()
   @ApiProperty({ type: String, example: 'test@test.com' })
   email: string;
 
+  @Matches(VERIFIER_PATTERN)
   @ApiProperty({
     type: String,
     example:
@@ -14,6 +26,7 @@ export class RegisterUserBodyDto {
   })
   verifier: string;
 
+  @Matches(SALT_PATTERN)
   @ApiProperty({
     type: String,
     example: '9e569cdc819b29ea7b0218f8553fe5aa1dc7be0a1ea2cec2aba2351b1356db52',

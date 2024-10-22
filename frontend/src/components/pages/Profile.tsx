@@ -1,7 +1,7 @@
-import { ProfileMode } from "@/common/enums";
-import { ProfileCard, ProfileCardEditor } from "@/components";
-import Title from "antd/es/typography/Title";
-import React, { useState } from "react";
+import { ProfileMode } from '@/common/enums';
+import { ProfileCard, ProfileCardEditor } from '@/components';
+import Title from 'antd/es/typography/Title';
+import React, { useState } from 'react';
 
 export const ProfilePage: React.FC = () => {
   const [mode, setMode] = useState<ProfileMode>(ProfileMode.View);

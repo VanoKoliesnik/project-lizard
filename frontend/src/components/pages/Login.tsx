@@ -1,14 +1,14 @@
-import { RoutesPaths } from "@/common/enums";
-import useLoginUser from "@/common/hooks/useLogin";
-import { User } from "@/common/types/user";
-import { Email, Password } from "@/components";
-import { useAppSelector } from "@/store";
-import { Button, Form, message } from "antd";
-import Title from "antd/es/typography/Title";
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { RoutesPaths } from '@/common/enums';
+import useLoginUser from '@/common/hooks/useLogin';
+import { User } from '@/common/types/user';
+import { Email, Password } from '@/components';
+import { useAppSelector } from '@/store';
+import { Button, Form, message } from 'antd';
+import Title from 'antd/es/typography/Title';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-type Credentials = Pick<User, "email" | "password">;
+type Credentials = Pick<User, 'email' | 'password'>;
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -24,14 +24,14 @@ export const LoginPage: React.FC = () => {
   }, [token, navigate]);
 
   const onFinish = async (credentials: Credentials) => {
-    const { result, reason = "" } = await loginUser(credentials);
+    const { result, reason = '' } = await loginUser(credentials);
 
     switch (result) {
-      case "success":
+      case 'success':
         navigate(RoutesPaths.Profile);
         break;
 
-      case "error":
+      case 'error':
         messageApi.error(reason);
         break;
     }
@@ -47,7 +47,7 @@ export const LoginPage: React.FC = () => {
         <Password />
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
+          <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
             Login
           </Button>
           Or <Link to={RoutesPaths.Registration}>register now!</Link>

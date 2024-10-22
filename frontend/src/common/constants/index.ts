@@ -1,1 +1,1 @@
-export * from "./regular-expressions";
+export * from './regular-expressions';
