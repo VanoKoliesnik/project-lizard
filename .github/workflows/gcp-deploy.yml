@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Go to the backend repository
+        working-directory: ./backend
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -17,9 +20,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "22"
-
-      - name: Go to the backend repository
-        run: cd backend
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
