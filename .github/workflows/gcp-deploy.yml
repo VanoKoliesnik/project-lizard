@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Go to the backend repository
-        working-directory: ./backend
-
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -22,9 +19,11 @@ jobs:
           node-version: "22"
 
       - name: Install dependencies
+        working-directory: ./backend
         run: yarn install --frozen-lockfile
 
       - name: Build Node Project
+        working-directory: ./backend
         run: yarn build
 
       - name: Google Cloud Auth
@@ -37,5 +36,5 @@ jobs:
         uses: "google-github-actions/setup-gcloud@v2"
 
       - name: Deploy to Google App Engine
-        run: |
-          gcloud app deploy app.yaml --quiet
+        working-directory: ./backend
+        run: "gcloud app deploy app.yaml --quiet"
