@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+env:
+  env_var: Production
 
 jobs:
   build-and-deploy:
@@ -17,6 +19,25 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "22"
+
+      - name: Setup Environment Variables
+        working-directory: ./backend
+        run: |
+          touch .env
+          echo SERVICE_PORT=${{ vars.SERVICE_PORT }} >> .env
+          echo SERVICE_HOST=${{ vars.SERVICE_HOST }} >> .env
+          echo SERVICE_NAME=${{ vars.SERVICE_NAME }} >> .env
+          echo BUILD_DOCS=${{ vars.BUILD_DOCS }} >> .env
+          echo JWT_EXPIRATION_TIME=${{ vars.JWT_EXPIRATION_TIME }} >> .env
+          echo CORS_ORIGIN=${{ vars.CORS_ORIGIN }} >> .env
+          echo CORS_METHODS=${{ vars.CORS_METHODS }} >> .env
+
+          echo DB_DATABASE=${{ secrets.DB_DATABASE }} >> .env
+          echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
+          echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+          echo DB_USERNAME=${{ secrets.DB_USERNAME }} >> .env
+          echo JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }} >> .env
 
       - name: Install dependencies
         working-directory: ./backend
