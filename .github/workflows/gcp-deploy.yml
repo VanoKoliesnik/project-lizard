@@ -28,21 +28,22 @@ jobs:
         run: |
           yarn build
 
-          touch ./dist/.env
-          echo SERVICE_PORT=${{ vars.SERVICE_PORT }} >> ./dist/.env
-          echo SERVICE_HOST=${{ vars.SERVICE_HOST }} >> ./dist/.env
-          echo SERVICE_NAME=${{ vars.SERVICE_NAME }} >> ./dist/.env
-          echo BUILD_DOCS=${{ vars.BUILD_DOCS }} >> ./dist/.env
-          echo JWT_EXPIRATION_TIME=${{ vars.JWT_EXPIRATION_TIME }} >> ./dist/.env
-          echo CORS_ORIGIN=${{ vars.CORS_ORIGIN }} >> ./dist/.env
-          echo CORS_METHODS=${{ vars.CORS_METHODS }} >> ./dist/.env
+          touch .env
 
-          echo DB_DATABASE=${{ secrets.DB_DATABASE }} >> ./dist/.env
-          echo DB_HOST=${{ secrets.DB_HOST }} >> .env
-          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> ./dist/.env
-          echo DB_PORT=${{ secrets.DB_PORT }} >> ./dist/.env
-          echo DB_USERNAME=${{ secrets.DB_USERNAME }} >> ./dist/.env
-          echo JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }} >> ./dist/.env
+          echo SERVICE_PORT=${{ vars.SERVICE_PORT }} >> .env
+          echo SERVICE_HOST=${{ vars.SERVICE_HOST }} >> .env
+          echo SERVICE_NAME=${{ vars.SERVICE_NAME }} >> .env
+          echo BUILD_DOCS=${{ vars.BUILD_DOCS }} >> .env
+          echo JWT_EXPIRATION_TIME=${{ vars.JWT_EXPIRATION_TIME }} >> .env
+          echo CORS_ORIGIN=${{ vars.CORS_ORIGIN }} >> .env
+          echo CORS_METHODS=${{ vars.CORS_METHODS }} >> .env
+
+          echo DB_DATABASE=${{ secrets.DB_DATABASE }} >> .env
+          echo DB_HOST=${{ secrets.DB_HOST.env
+          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
+          echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+          echo DB_USERNAME=${{ secrets.DB_USERNAME }} >> .env
+          echo JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }} >> .env
 
       - name: Google Cloud Auth
         uses: "google-github-actions/auth@v2"
